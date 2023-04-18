@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-    faCircleXmark,
-    faSpinner,
-    faMagnifyingGlass,
-    faEllipsisVertical,
-    faEarthAsia,
     faCircleQuestion,
+    faCircleXmark,
+    faEarthAsia,
+    faEllipsisVertical,
     faKeyboard,
+    faMagnifyingGlass,
+    faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 
@@ -16,7 +16,7 @@ import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
-import AccountItem from '../AccountItem';
+import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
 
 const cx = classNames.bind(styles);
@@ -33,7 +33,7 @@ const MENU_ITEMS = [
     },
     {
         icon: <FontAwesomeIcon icon={faKeyboard} />,
-        title: 'Keyboard Shortcuts',
+        title: 'Keyboard shortcuts',
     },
 ];
 
@@ -61,13 +61,13 @@ function Header() {
                                 <AccountItem />
                                 <AccountItem />
                                 <AccountItem />
+                                <AccountItem />
                             </PopperWrapper>
                         </div>
                     )}
                 >
                     <div className={cx('search')}>
-                        <input placeholder="Search accounts and videos ... " spellCheck={false} />
-
+                        <input placeholder="Search accounts and videos" spellCheck={false} />
                         <button className={cx('clear')}>
                             <FontAwesomeIcon icon={faCircleXmark} />
                         </button>
@@ -78,7 +78,6 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-
                 <div className={cx('actions')}>
                     <Button text>Upload</Button>
                     <Button primary>Log in</Button>

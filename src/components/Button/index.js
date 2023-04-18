@@ -11,9 +11,9 @@ function Button({
     outline = false,
     text = false,
     rounded = false,
+    disabled = false,
     small = false,
     large = false,
-    disabled = false,
     children,
     className,
     leftIcon,
@@ -27,11 +27,7 @@ function Button({
         ...passProps,
     };
 
-    // Remote event listener when btn is disabled
-    // if (disabled) {
-    //     delete props.onClick;
-    // }
-    // or
+    // Remove event listener when btn is disabled
     if (disabled) {
         Object.keys(props).forEach((key) => {
             if (key.startsWith('on') && typeof props[key] === 'function') {
@@ -52,11 +48,11 @@ function Button({
         [className]: className,
         primary,
         outline,
-        small,
-        large,
         text,
         disabled,
         rounded,
+        small,
+        large,
     });
 
     return (
